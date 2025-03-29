@@ -1,0 +1,25 @@
+{
+  "name": "generate-mock-data",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "@actions/github": "^6.0.0",
+    "@firebase/app": "^0.11.3",
+    "@firebase/firestore": "^4.7.10",
+    "dotenv": "^16.4.7",
+    "firebase-admin": "^13.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.1",
+    "@vercel/ncc": "^0.38.3",
+    "typescript": "^5.7.3"
+  }
+}

@@ -1,0 +1,31 @@
+run-name: "generate-mock-data"
+on:
+    push:           ## removing the branches tag from below will push the data to all branches
+      branches:
+        - main       ## mock data will be pushed directly on main branch
+        - develop    ## the branch from development mode
+      paths:  
+        - '/../..'     ## path to firebase database
+        - '!/../..'    ## path to excluded firebase database
+    schedule:
+      - cron: ''
+    workflow_call:
+      outputs:
+        automatic-trigger:
+          description: "the workflow is triggered automatically"
+          value: "value"
+        manual-trigger:
+          description: "the workflow is triggered manually"
+          value: "value"
+
+jobs:
+    run-workflow:
+      runs-on: ubuntu-latest
+      steps:
+      - name: "connect-to-firebase"  
+        uses: " " ## add firebase credentials (github secrets)
+        with:
+          token: "" ## github secrets value
+
+      - name: generate-mock-data ## push-data-to-firebase
+        run: generate-mock-data/dist/index.js ## github action that generate the mock data

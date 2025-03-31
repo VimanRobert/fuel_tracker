@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CarRadioButtonStyle">
+        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:drawableTop">@drawable/back_button</item>
+        <item name="android:gravity">center</item>
+        <item name="android:button">@null</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+    </style>
+</resources>

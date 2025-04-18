@@ -23,3 +23,4 @@ rootProject.name = "FuelTracker"
 include(":app")
 include(":presentation")
 include(":domain")
+include(":data")

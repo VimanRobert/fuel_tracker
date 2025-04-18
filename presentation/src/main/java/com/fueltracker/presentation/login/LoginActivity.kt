@@ -1,17 +1,18 @@
-package com.fueltracker.presentation.activity
+package com.fueltracker.presentation.login
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.fueltracker.presentation.databinding.ActivityMainBinding
+import com.fueltracker.presentation.databinding.ActivityLoginBinding
 
-class MainActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
-    private var _binding: ActivityMainBinding? = null
+    private var _binding: ActivityLoginBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        _binding = ActivityMainBinding.inflate(layoutInflater)
+
+        _binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
 

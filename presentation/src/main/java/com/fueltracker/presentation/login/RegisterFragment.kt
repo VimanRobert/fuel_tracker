@@ -1,22 +1,22 @@
-package com.fueltracker.presentation.home
+package com.fueltracker.presentation.login
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.fueltracker.presentation.databinding.FragmentHomeBinding
+import androidx.fragment.app.Fragment
+import com.fueltracker.presentation.databinding.FragmentRegisterBinding
 
-class HomeFragment : Fragment() {
+class RegisterFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHomeBinding.inflate(layoutInflater)
+        _binding = FragmentRegisterBinding.inflate(layoutInflater)
         return binding.root
     }
 

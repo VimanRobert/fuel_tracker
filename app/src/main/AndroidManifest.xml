@@ -15,7 +15,7 @@
         android:theme="@style/Theme.FuelTracker">
 
         <activity
-            android:name="com.fueltracker.presentation.activity.MainActivity"
+            android:name="com.fueltracker.presentation.platform.PlatformActivity"
             android:clearTaskOnLaunch="true"
             android:exported="true">
 

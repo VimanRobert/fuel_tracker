@@ -1,9 +1,9 @@
 package com.fueltracker.domain
 
-import com.fueltracker.data.model.FuelTrackerImpl
+import com.fueltracker.domain.repository.FuelTrackerRepository
 
 class GetFuelReportsUseCase(
-    private val fuelTrackerImpl: FuelTrackerImpl
+    private val fuelTrackerRepository: FuelTrackerRepository
 ) {
-    fun getReports() = fuelTrackerImpl.getFuelReports()
+    fun getReports() = fuelTrackerRepository.getFuelReports()
 }

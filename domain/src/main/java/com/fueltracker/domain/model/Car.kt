@@ -1,4 +1,4 @@
-package com.fueltracker.data
+package com.fueltracker.domain.model
 
 data class Car(
     val carId: String,

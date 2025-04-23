@@ -1,11 +1,11 @@
 package com.fueltracker.domain
 
-import com.fueltracker.data.Car
-import com.fueltracker.data.model.FuelTrackerImpl
+import com.fueltracker.domain.model.Car
+import com.fueltracker.domain.repository.FuelTrackerRepository
 
 class SetUserDataUseCase(
-    private val fuelTrackerImpl: FuelTrackerImpl
+    private val fuelTrackerRepository: FuelTrackerRepository
 ) {
     fun setData(id: String, email: String, car: Car) =
-        fuelTrackerImpl.setUserData(userId = id, userEmail = email, carCategory = car)
+        fuelTrackerRepository.setUserData(userId = id, userEmail = email, carCategory = car)
 }

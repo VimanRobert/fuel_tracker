@@ -1,9 +1,9 @@
 package com.fueltracker.domain
 
-import com.fueltracker.data.model.FuelTrackerImpl
+import com.fueltracker.domain.repository.FuelTrackerRepository
 
 class SetCarDataUseCase(
-    private val fuelTrackerImpl: FuelTrackerImpl
+    private val fuelTrackerRepository: FuelTrackerRepository
 ) {
 
     fun setData(
@@ -14,7 +14,7 @@ class SetCarDataUseCase(
         engine: Number,
         horsePower: Number,
         energy: Number,
-    ) = fuelTrackerImpl.setCarData(
+    ) = fuelTrackerRepository.setCarData(
         carId = carId,
         brand = brand,
         type = type,
@@ -24,7 +24,7 @@ class SetCarDataUseCase(
         engine = energy
     )
 
-    fun setDefaultData() = fuelTrackerImpl.setCarData(
+    fun setDefaultData() = fuelTrackerRepository.setCarData(
         carId = "00000",
         brand = "UNKNOWN",
         type = "UNKNOWN",

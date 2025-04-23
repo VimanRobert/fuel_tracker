@@ -1,10 +1,10 @@
-package com.fueltracker.data.model
+package com.fueltracker.domain.repository
 
-import com.fueltracker.data.Car
-import com.fueltracker.data.Report
-import com.fueltracker.data.User
+import com.fueltracker.domain.model.Car
+import com.fueltracker.domain.model.Report
+import com.fueltracker.domain.model.User
 
-interface FuelTrackerImpl {
+interface FuelTrackerRepository {
 
     fun setUserData(userId: String, userEmail: String, carCategory: Car?): User
 

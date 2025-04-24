@@ -1,8 +1,13 @@
 package com.fueltracker.presentation.utils
 
+import android.accounts.AccountManager
 import android.content.Context
 import android.util.Log
+import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -11,6 +16,24 @@ class UserHelper(val context: Context) {
 
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var firestoreData: FirebaseFirestore
+
+    fun retrieveCarUserProfileInfo(email: TextView?, userName: TextView?) {
+        val accounts = AccountManager.get(context).getAccountsByType("com.google")
+        //val account = accounts.firstOrNull()
+        val account = GoogleSignIn.getLastSignedInAccount(context)
+        if (account != null) {
+            email?.text = account.email
+            userName?.text = account.displayName
+        } else {
+            email?.text = "No Google account found"
+            userName?.text = "Unknown user"
+        }
+    }
+
+    fun getGoogleEmail(): String? {
+        val accounts = AccountManager.get(context).getAccountsByType("com.google")
+        return accounts.firstOrNull()?.name
+    }
 
     fun login(email: String, password: String, onLoginResult: (Boolean) -> Unit) {
         FirebaseApp.initializeApp(context)

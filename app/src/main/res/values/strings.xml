@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">FuelTracker</string>
+    <string name="title_app_name">Fuel Tracker</string>
 </resources>

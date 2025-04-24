@@ -51,6 +51,9 @@ dependencies {
     implementation(libs.firebase.auth.ktx)
     implementation(libs.firebase.firestore.ktx)
     implementation(libs.philjay.mpandroidchart)
+    implementation(libs.play.services.auth)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

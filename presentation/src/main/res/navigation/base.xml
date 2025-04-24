@@ -9,5 +9,57 @@
         android:id="@+id/homeFragment"
         android:name="com.fueltracker.presentation.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_infoFragment"
+            app:destination="@id/infoFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_carStatusFragment"
+            app:destination="@id/carStatusFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_generalReportsFragment"
+            app:destination="@id/generalReportsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_userStatusFragment"
+            app:destination="@id/userStatusFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.fueltracker.presentation.info.InfoFragment"
+        android:label="fragment_info"
+        tools:layout="@layout/fragment_info" >
+        <action
+            android:id="@+id/action_infoFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/carStatusFragment"
+        android:name="com.fueltracker.presentation.carstatus.CarStatusFragment"
+        android:label="fragment_car_status"
+        tools:layout="@layout/fragment_car_status" >
+        <action
+            android:id="@+id/action_carStatusFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_carStatusFragment_to_homeFragment2"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/generalReportsFragment"
+        android:name="com.fueltracker.presentation.generalreports.GeneralReportsFragment"
+        android:label="fragment_general_reports"
+        tools:layout="@layout/fragment_general_reports" >
+        <action
+            android:id="@+id/action_generalReportsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userStatusFragment"
+        android:name="com.fueltracker.presentation.userstatus.UserStatusFragment"
+        android:label="fragment_user_status"
+        tools:layout="@layout/fragment_user_status" >
+        <action
+            android:id="@+id/action_userStatusFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>

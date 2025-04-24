@@ -3,6 +3,8 @@ package com.fueltracker.presentation.activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.fueltracker.presentation.databinding.ActivityMainBinding
+import com.fueltracker.presentation.utils.NotificationsHelper.showConnectDialogIfNeeded
+import com.fueltracker.presentation.utils.handleBackButtonNavigation
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,6 +15,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        showConnectDialogIfNeeded(this)
+
+        binding.toolbarBackButton.setOnClickListener {
+            handleBackButtonNavigation()
+        }
     }
 
     override fun onDestroy() {

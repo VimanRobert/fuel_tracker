@@ -7,10 +7,31 @@
     android:layout_height="match_parent"
     tools:context=".activity.MainActivity">
 
-    <include
-        layout="@layout/toolbar"
+    <RelativeLayout
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="100dp"/>
+        android:layout_height="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/toolbar_back_button"
+            style="@style/MobileRadioButtonStyle"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="500dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:text="@string/title_app_name" />
+
+    </RelativeLayout>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host"

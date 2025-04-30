@@ -7,25 +7,41 @@
     tools:context=".carstatus.CarStatusFragment">
 
     <TextView
-        android:id="@+id/text_brand"
+        android:id="@+id/text_car_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/text_id"
+        android:textColor="@color/black"
         android:textSize="25sp"
-        android:text="@string/text_brand"
+        android:layout_marginStart="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.052" />
 
     <TextView
+        android:id="@+id/text_brand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/text_brand"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:layout_marginStart="150dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_car_id"
+        app:layout_constraintVertical_bias="0.052" />
+
+    <TextView
         android:id="@+id/text_model"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
+        android:textColor="@color/black"
         android:textSize="25sp"
+        android:layout_marginStart="150dp"
         android:text="@string/text_model"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,9 +52,10 @@
         android:id="@+id/text_engine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
+        android:textColor="@color/black"
         android:textSize="25sp"
+        android:layout_marginStart="150dp"
         android:text="@string/text_engine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,13 +66,26 @@
         android:id="@+id/text_horsepower"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
+        android:textColor="@color/black"
         android:textSize="25sp"
+        android:layout_marginStart="150dp"
         android:text="@string/text_horse_power"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_engine"
         app:layout_constraintVertical_bias="0.052" />
+
+    <TextView
+        android:id="@+id/label_car_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_unknown"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:layout_marginEnd="250dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

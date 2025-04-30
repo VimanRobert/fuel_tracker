@@ -1,6 +1,12 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.google.dagger.hilt.android)
+    alias(libs.plugins.kotlin.kapt)
+}
+
+kapt {
+    correctErrorTypes = true
 }
 
 android {
@@ -35,6 +41,10 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
+    kapt {
+        correctErrorTypes = true
+    }
 }
 
 dependencies {
@@ -54,6 +64,18 @@ dependencies {
     implementation(libs.play.services.auth)
     implementation(libs.androidx.lifecycle.livedata.ktx)
 
+    implementation(libs.hilt)
+//    implementation(libs.hilt.android.v2562)
+//    implementation(libs.hilt.android)
+//    annotationProcessor(libs.hilt.compiler.v2562)
+    kapt(libs.hilt.compiler)
+//    kapt(libs.hilt.android.compiler)
+
+    // For instrumentation tests
+    androidTestImplementation(libs.hilt.android.testing)
+
+    // For local unit tests
+    testImplementation(libs.hilt.android.testing)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

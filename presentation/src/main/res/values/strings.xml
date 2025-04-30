@@ -26,6 +26,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!-- Car Status page -->
+    <string name="text_id">Car identification number:</string>
     <string name="text_brand">Brand:</string>
     <string name="text_model">Model:</string>
     <string name="text_engine">Engine:</string>

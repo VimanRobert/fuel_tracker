@@ -1,6 +1,11 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
+}
+
+kapt {
+    correctErrorTypes = true
 }
 
 android {
@@ -34,11 +39,13 @@ android {
 
 dependencies {
 
-    implementation(project(":data"))
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+
+    implementation(libs.hilt)
+    implementation(libs.google.firebase.firestore.ktx)
+    kapt(libs.hilt.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

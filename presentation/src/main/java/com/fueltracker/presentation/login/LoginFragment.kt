@@ -13,7 +13,9 @@ import com.fueltracker.presentation.activity.MainActivity
 import com.fueltracker.presentation.databinding.FragmentLoginBinding
 import com.fueltracker.presentation.utils.UserHelper
 import com.google.firebase.auth.FirebaseAuth
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
 
     private lateinit var firebaseAuth: FirebaseAuth
@@ -49,5 +51,10 @@ class LoginFragment : Fragment() {
         binding.register.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

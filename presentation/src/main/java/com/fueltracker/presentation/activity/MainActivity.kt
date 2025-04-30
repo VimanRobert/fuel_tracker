@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.fueltracker.presentation.databinding.ActivityMainBinding
 import com.fueltracker.presentation.utils.NotificationsHelper.showConnectDialogIfNeeded
 import com.fueltracker.presentation.utils.handleBackButtonNavigation
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private var _binding: ActivityMainBinding? = null

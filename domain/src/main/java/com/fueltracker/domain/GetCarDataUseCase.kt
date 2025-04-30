@@ -5,5 +5,7 @@ import com.fueltracker.domain.repository.FuelTrackerRepository
 class GetCarDataUseCase(
     private val fuelTrackerRepository: FuelTrackerRepository
 ) {
-    fun getData(id: String) = fuelTrackerRepository.getCarData(carId = id)
+    fun getCarData(id: String) = fuelTrackerRepository.getCarData(carId = id)
+
+    fun getCarId(id: String) = fuelTrackerRepository.getCarId(carId = id)
 }

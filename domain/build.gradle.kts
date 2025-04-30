@@ -43,6 +43,8 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
 
+    implementation(libs.gson)
+    
     implementation(libs.hilt)
     implementation(libs.google.firebase.firestore.ktx)
     kapt(libs.hilt.compiler)

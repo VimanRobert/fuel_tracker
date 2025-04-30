@@ -64,19 +64,15 @@ dependencies {
     implementation(libs.play.services.auth)
     implementation(libs.androidx.lifecycle.livedata.ktx)
 
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.gson)
+
     implementation(libs.hilt)
-//    implementation(libs.hilt.android.v2562)
-//    implementation(libs.hilt.android)
-//    annotationProcessor(libs.hilt.compiler.v2562)
+    implementation(libs.androidx.multidex)
     kapt(libs.hilt.compiler)
-//    kapt(libs.hilt.android.compiler)
 
-    // For instrumentation tests
     androidTestImplementation(libs.hilt.android.testing)
-
-    // For local unit tests
     testImplementation(libs.hilt.android.testing)
-
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

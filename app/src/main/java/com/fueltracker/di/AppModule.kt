@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import com.fueltracker.domain.GetCarDataUseCase
 import com.fueltracker.domain.GetUserDataUseCase
 import com.fueltracker.domain.SetCarDataUseCase
+import com.fueltracker.domain.SetUserDataUseCase
 import com.fueltracker.domain.repository.FuelTrackerRepository
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.Module
@@ -26,8 +27,14 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideUserDataUseCase(fuelTrackerRepository: FuelTrackerRepository): GetUserDataUseCase {
+    fun provideGetUserDataUseCase(fuelTrackerRepository: FuelTrackerRepository): GetUserDataUseCase {
         return GetUserDataUseCase(fuelTrackerRepository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideSetUserDataUseCase(fuelTrackerRepository: FuelTrackerRepository): SetUserDataUseCase {
+        return SetUserDataUseCase(fuelTrackerRepository)
     }
 
     @Provides
@@ -43,12 +50,4 @@ object AppModule {
     fun provideSharedPreferences(@ApplicationContext context: Context): SharedPreferences {
         return context.getSharedPreferences("fuel_prefs", Context.MODE_PRIVATE)
     }
-
-//    @Provides
-//    fun provideFuelTrackerRepository(
-//        firestore: FirebaseFirestore,
-//        sharedPrefs: SharedPreferences
-//    ): FuelTrackerRepository {
-//        return FuelTrackerRepositoryImpl(firestore, sharedPrefs)
-//    }
 }

@@ -6,7 +6,13 @@ import com.fueltracker.domain.model.User
 
 interface FuelTrackerRepository {
 
-    fun setUserData(userId: String, userEmail: String, carCategory: Car?): User
+    fun setUserData(
+        userId: String,
+        userEmail: String,
+        userName: String,
+        pairingCode: String,
+        carCategory: Car?
+    ): User
 
     suspend fun getUserData(userId: String): User?
 

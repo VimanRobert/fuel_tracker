@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.fueltracker" />
+                  <option name="mobileSdkAppId" value="1:984199425136:android:a0992e569c10186744d8b5" />
+                  <option name="projectId" value="fuel-tracker-65733" />
+                  <option name="projectNumber" value="984199425136" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

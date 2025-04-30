@@ -14,48 +14,84 @@
         android:layout_marginTop="50dp"
         android:textSize="25sp"
         android:text="@string/text_brand"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.052" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_model"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:textSize="25sp"
         android:text="@string/text_model"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_brand"
-        app:layout_constraintVertical_bias="0.052" />
+        app:layout_constraintTop_toBottomOf="@+id/text_brand" />
 
     <TextView
         android:id="@+id/text_engine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:textSize="25sp"
         android:text="@string/text_engine"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_model"
-        app:layout_constraintVertical_bias="0.052" />
+        app:layout_constraintTop_toBottomOf="@+id/text_model" />
 
     <TextView
         android:id="@+id/text_horsepower"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:textSize="25sp"
         android:text="@string/text_horse_power"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_engine"
-        app:layout_constraintVertical_bias="0.052" />
+        app:layout_constraintTop_toBottomOf="@+id/text_engine" />
+
+    <TextView
+        android:id="@+id/label_brand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="50dp"
+        android:textSize="25sp"
+        android:text="@string/text_unknown"
+        app:layout_constraintStart_toEndOf="@id/text_brand"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/label_model"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="50dp"
+        android:textSize="25sp"
+        android:text="@string/text_unknown"
+        app:layout_constraintStart_toEndOf="@id/text_model"
+        app:layout_constraintTop_toBottomOf="@id/label_brand"/>
+
+    <TextView
+        android:id="@+id/label_engine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="50dp"
+        android:textSize="25sp"
+        android:text="@string/text_unknown"
+        app:layout_constraintStart_toEndOf="@id/text_engine"
+        app:layout_constraintTop_toBottomOf="@id/label_model"/>
+
+    <TextView
+        android:id="@+id/label_horse_power"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="50dp"
+        android:textSize="25sp"
+        android:text="@string/text_unknown"
+        app:layout_constraintStart_toEndOf="@id/text_horsepower"
+        app:layout_constraintTop_toBottomOf="@id/label_engine"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

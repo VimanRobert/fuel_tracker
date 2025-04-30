@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "984199425136",
+    "project_id": "fuel-tracker-65733",
+    "storage_bucket": "fuel-tracker-65733.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:984199425136:android:a0992e569c10186744d8b5",
+        "android_client_info": {
+          "package_name": "com.fueltracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "984199425136-64mflsmnnicqh38tf6rd54mm32euhv5s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fueltracker",
+            "certificate_hash": "487db25cc2a0689dad64f10c50060eb24a908a2e"
+          }
+        },
+        {
+          "client_id": "984199425136-fpcsicm52u3s9e8nk7abk6btm4rejvp3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApSlNQu4igJG5a_59i2FPJC9zRCI_gCbk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "984199425136-fpcsicm52u3s9e8nk7abk6btm4rejvp3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

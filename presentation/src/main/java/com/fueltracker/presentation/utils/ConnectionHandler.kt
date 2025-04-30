@@ -10,44 +10,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 object ConnectionHandler {
 
-//    fun connectCarAppToUser(
-//        context: Context,
-//        car: Car,
-//        pairingCode: String,
-//        onSuccess: (DocumentSnapshot) -> Unit,
-//        onFailure: (String) -> Unit
-//    ) {
-//        val db = FirebaseFirestore.getInstance()
-//        val prefs = context.getSharedPreferences("car_config", Context.MODE_PRIVATE)
-//
-//        db.collection("users")
-//            .whereEqualTo("pairingCode", pairingCode)
-//            .get()
-//            .addOnSuccessListener { querySnapshot ->
-//                if (!querySnapshot.isEmpty) {
-//                    val userDoc = querySnapshot.documents[0]
-//                    val userId = userDoc.id
-//
-//                    db.collection("users").document(userId)
-//                        .collection("cars")
-//                        .document(car.carId)
-//                        .set(car)
-//                        .addOnSuccessListener {
-//                            prefs.edit().putString("pairedUserId", userId).apply()
-//                            onSuccess(userDoc)
-//                        }
-//                        .addOnFailureListener { e ->
-//                            onFailure("Failed to upload car: ${e.message}")
-//                        }
-//                } else {
-//                    onFailure("Invalid pairing code")
-//                }
-//            }
-//            .addOnFailureListener { e ->
-//                onFailure("Error connecting to Firestore: ${e.message}")
-//            }
-//    }
-
     fun connectCarAppToUser(
         context: Context,
         car: Car,
@@ -88,6 +50,8 @@ object ConnectionHandler {
                         .addOnFailureListener { e ->
                             onFailure("Failed to write car data: ${e.localizedMessage}")
                         }
+
+
 
                 } else {
                     onFailure("Invalid pairing code.")
@@ -131,5 +95,4 @@ object ConnectionHandler {
                 onFailure("Error fetching car: ${it.localizedMessage}")
             }
     }
-
 }

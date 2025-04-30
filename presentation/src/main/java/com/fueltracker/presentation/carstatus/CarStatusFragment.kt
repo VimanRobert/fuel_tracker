@@ -37,7 +37,7 @@ class CarStatusFragment : Fragment() {
         carStatusViewModel.registerCarData(requireContext())
 
         binding.apply {
-            if (isMobile(requireContext())){
+            if (isMobile(requireContext())) {
                 fetchCurrentUserCarData(
                     onSuccess = { car ->
                         labelBrand.text = car.brand
@@ -51,14 +51,14 @@ class CarStatusFragment : Fragment() {
                     }
                 )
             } else if (isAutomotive(requireContext())) {
-            carStatusViewModel.retrieveCarData(requireContext()).apply {
-                labelCarId!!.text = carId
-                labelBrand.text = brand
-                labelModel.text = type
-                labelEngine.text = engine.toString()
-                labelHorsePower.text = horsePower.toString()
-            }
+                carStatusViewModel.retrieveCarData(requireContext()).apply {
+                    labelCarId!!.text = carId
+                    labelBrand.text = brand
+                    labelModel.text = type
+                    labelEngine.text = engine.toString()
+                    labelHorsePower.text = horsePower.toString()
                 }
+            }
         }
     }
 

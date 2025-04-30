@@ -8,7 +8,9 @@ import com.fueltracker.presentation.activity.MainActivity
 import com.fueltracker.presentation.login.LoginActivity
 import com.fueltracker.presentation.utils.SystemHandler.isAutomotive
 import com.fueltracker.presentation.utils.SystemHandler.isMobile
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PlatformActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

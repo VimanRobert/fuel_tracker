@@ -20,7 +20,6 @@ class UserStatusFragment : Fragment() {
 
     private lateinit var user: UserHelper
 //    private val viewModel: UserStatusViewModel by viewModels()
-    private lateinit var viewModel: UserStatusViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,24 +33,22 @@ class UserStatusFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = UserStatusViewModel(user)
-
-        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.GET_ACCOUNTS)
-            != PackageManager.PERMISSION_GRANTED) {
-
-            ActivityCompat.requestPermissions(
-                requireActivity(),
-                arrayOf(Manifest.permission.GET_ACCOUNTS),
-                1001
-            )
-        } else {
-            user.getGoogleEmail()
-        }
-
-        user.retrieveCarUserProfileInfo(binding.labelUsername, binding.labelEmail)
-//        viewModel.userEmail.observe(viewLifecycleOwner) { email ->
-//            binding.labelEmail?.text = email ?: "Email not found"
+//        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.GET_ACCOUNTS)
+//            != PackageManager.PERMISSION_GRANTED) {
+//
+//            ActivityCompat.requestPermissions(
+//                requireActivity(),
+//                arrayOf(Manifest.permission.GET_ACCOUNTS),
+//                1001
+//            )
+//        } else {
+//            user.getGoogleEmail()
 //        }
+//
+//        user.retrieveCarUserProfileInfo(binding.labelUsername, binding.labelEmail)
+////        viewModel.userEmail.observe(viewLifecycleOwner) { email ->
+////            binding.labelEmail?.text = email ?: "Email not found"
+////        }
     }
 
     override fun onRequestPermissionsResult(
@@ -63,6 +60,7 @@ class UserStatusFragment : Fragment() {
         if (requestCode == 1001) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 user.getGoogleEmail()
+                Log.e("UserStatusFragment", "Permission granted.")
             } else {
                 // Handle the case when permission is denied
                 Log.e("UserStatusFragment", "Permission denied for GET_ACCOUNTS")

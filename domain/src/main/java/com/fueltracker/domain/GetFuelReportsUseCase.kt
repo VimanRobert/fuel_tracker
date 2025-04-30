@@ -5,5 +5,5 @@ import com.fueltracker.domain.repository.FuelTrackerRepository
 class GetFuelReportsUseCase(
     private val fuelTrackerRepository: FuelTrackerRepository
 ) {
-    fun getReports() = fuelTrackerRepository.getFuelReports()
+    suspend fun getReports(id: String) = fuelTrackerRepository.getFuelReports(userId = id)
 }

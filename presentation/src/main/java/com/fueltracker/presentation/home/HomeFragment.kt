@@ -1,7 +1,6 @@
 package com.fueltracker.presentation.home
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,11 +10,10 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.fueltracker.domain.model.HomeDestination
 import com.fueltracker.presentation.R
 import com.fueltracker.presentation.databinding.FragmentHomeBinding
-import com.fueltracker.presentation.utils.ChartsHandler.createLinearChart
-import com.fueltracker.presentation.utils.NotificationsHelper.showConnectDialogIfNeeded
 import com.fueltracker.presentation.utils.homeItemsList
-import com.github.mikephil.charting.data.Entry
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null

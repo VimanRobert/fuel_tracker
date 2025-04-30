@@ -1,6 +1,12 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.google.dagger.hilt.android)
+}
+
+kapt {
+    correctErrorTypes = true
 }
 
 android {
@@ -37,13 +43,22 @@ android {
 
 dependencies {
 
-    implementation(project(":presentation"))
     implementation(project(":domain"))
+    implementation(project(":data"))
+    implementation(project(":presentation"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+    implementation(libs.kotlinx.metadata.jvm)
 
+    implementation(libs.hilt)
+    implementation(libs.google.firebase.firestore.ktx)
+    kapt(libs.hilt.compiler)
+
+    androidTestImplementation(libs.hilt.android.testing)
+
+    testImplementation(libs.hilt.android.testing)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

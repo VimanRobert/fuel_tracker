@@ -5,7 +5,6 @@ data class Car(
     val brand: String,
     val type: String,
     val fuelType: String,
-    val engine: Double,
+    val engine: Float,
     val horsePower: Int,
-    val energy: Double,
 )

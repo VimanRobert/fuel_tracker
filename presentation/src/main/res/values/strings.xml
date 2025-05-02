@@ -4,6 +4,9 @@
     <string name="app_name">FuelTracker</string>
     <string name="title_app_name">Fuel Tracker</string>
 
+    <!-- Configs -->
+    <string name="default_web_client_id">984199425136-64mflsmnnicqh38tf6rd54mm32euhv5s.apps.googleusercontent.com</string>
+
     <!-- Views -->
     <string name="page_settings">Settings</string>
     <string name="page_car_info">Car info</string>
@@ -31,8 +34,11 @@
     <string name="text_model">Model:</string>
     <string name="text_engine">Engine:</string>
     <string name="text_horse_power">Horse power:</string>
+
+    <!-- Car Info page -->
     <string name="text_application_scope">Application scope</string>
+
+    <!-- Default text messages -->
     <string name="text_unknown">UNKNOWN</string>
-
-
+    <string name="text_error_no_pairing_code_available">This code is not associated with an existing user. Register a new user in the mobile app first</string>
 </resources>

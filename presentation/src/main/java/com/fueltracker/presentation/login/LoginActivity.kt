@@ -3,7 +3,9 @@ package com.fueltracker.presentation.login
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.fueltracker.presentation.databinding.ActivityLoginBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
 
     private var _binding: ActivityLoginBinding? = null

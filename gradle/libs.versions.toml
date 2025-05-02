@@ -1,7 +1,9 @@
 [versions]
 agp = "8.7.2"
 daggerCompiler = "2.50"
+firebaseBom = "33.13.0"
 googleServices = "4.4.2"
+gson = "2.10.1"
 hiltAndroid = "2.56.2"
 hiltAndroidGradlePlugin = "2.48"
 hiltCompiler = "2.56.2"
@@ -25,11 +27,14 @@ playServicesAuth = "21.3.0"
 lifecycleLivedataKtx = "2.8.7"
 daggerHilt = "2.52"
 firebaseFirestoreKtxVersion = "25.1.4"
+multidex = "2.0.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "daggerCompiler" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 google-services = { module = "com.google.gms:google-services", version.ref = "googleServices" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "daggerHilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "daggerHilt" }
 hilt-android-gradle-plugin = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hiltAndroidGradlePlugin" }
@@ -50,6 +55,7 @@ philjay-mpandroidchart = { module = "com.github.PhilJay:MPAndroidChart", version
 play-services-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "playServicesAuth" }
 androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
 google-firebase-firestore-ktx = { group = "com.google.firebase", name = "firebase-firestore-ktx", version.ref = "firebaseFirestoreKtxVersion" }
+androidx-multidex = { group = "androidx.multidex", name = "multidex", version.ref = "multidex" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

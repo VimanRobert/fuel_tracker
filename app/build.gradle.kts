@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.google.dagger.hilt.android)
+    id("com.google.gms.google-services")
 }
 
 kapt {
@@ -10,11 +11,11 @@ kapt {
 }
 
 android {
-    namespace = "com.example.fueltracker"
+    namespace = "com.fueltracker"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.fueltracker"
+        applicationId = "com.fueltracker"
         minSdk = 31
         targetSdk = 35
         versionCode = 1
@@ -51,6 +52,8 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.kotlinx.metadata.jvm)
+
+    implementation(platform(libs.firebase.bom))
 
     implementation(libs.hilt)
     implementation(libs.google.firebase.firestore.ktx)

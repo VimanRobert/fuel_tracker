@@ -7,11 +7,14 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.LinearLayout
 import android.widget.TextView
+import com.google.firebase.auth.FirebaseAuth
 
 object NotificationsHelper {
 
     fun showConnectDialogIfNeeded(context: Context) {
-        if (!shouldShowConnectPrompt(context)) return
+        val firebaseAuth = FirebaseAuth.getInstance().currentUser
+//        if (!shouldShowConnectPrompt(context)) return
+        if (firebaseAuth != null) return
 
         val layout = LinearLayout(context).apply {
             orientation = LinearLayout.VERTICAL
@@ -51,7 +54,6 @@ object NotificationsHelper {
 
         dialog.show()
 
-        // Optionally adjust width if needed
         dialog.window?.setLayout(
             (context.resources.displayMetrics.widthPixels * 0.90).toInt(),
             ViewGroup.LayoutParams.WRAP_CONTENT

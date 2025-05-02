@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.fueltracker.domain.model.HomeDestination
 import com.fueltracker.presentation.R
 import com.fueltracker.presentation.databinding.FragmentHomeBinding
+import com.fueltracker.presentation.utils.SystemHandler.isAutomotive
+import com.fueltracker.presentation.utils.SystemHandler.isMobile
 import com.fueltracker.presentation.utils.homeItemsList
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -41,8 +43,14 @@ class HomeFragment : Fragment() {
             }
         }
 
-        binding.homeRecyclerView.layoutManager = GridLayoutManager(requireContext(), 4)
-        binding.homeRecyclerView.adapter = adapter
+        with(binding) {
+            if (isMobile(requireContext())) {
+                homeRecyclerView.layoutManager = GridLayoutManager(requireContext(), 1)
+            } else if (isAutomotive(requireContext())) {
+                homeRecyclerView.layoutManager = GridLayoutManager(requireContext(), 4)
+            }
+            homeRecyclerView.adapter = adapter
+        }
 
 //        createLinearChart(
 //            listOf(

@@ -46,4 +46,8 @@ class CarStatusViewModel @Inject constructor(
     fun retrieveCarData(context: Context): Car {
         return setCarDataUseCase.carDataGenerator(context)
     }
+
+    fun registerCarData(context: Context) {
+        setCarDataUseCase.saveCarData(context, setCarDataUseCase.carDataGenerator(context))
+    }
 }

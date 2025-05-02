@@ -1,6 +1,5 @@
 package com.fueltracker.data.repository
 
-import android.content.Context
 import android.content.SharedPreferences
 import com.fueltracker.domain.model.Car
 import com.fueltracker.domain.model.Report
@@ -13,7 +12,7 @@ import javax.inject.Inject
 class FuelTrackerRepositoryImpl @Inject constructor(
     private val firestore: FirebaseFirestore,
     private val sharedPrefs: SharedPreferences
-): FuelTrackerRepository {
+) : FuelTrackerRepository {
 
     override suspend fun getFuelReports(userId: String): List<Report> {
         val snapshot = firestore.collection("users").document(userId)
@@ -21,13 +20,19 @@ class FuelTrackerRepositoryImpl @Inject constructor(
         return snapshot.toObjects(Report::class.java)
     }
 
+    override fun setUserData(
+        userId: String,
+        userEmail: String,
+        userName: String,
+        pairingCode: String,
+        carCategory: Car?
+    ): User {
+        TODO("Not yet implemented")
+    }
+
     override suspend fun getUserData(userId: String): User? {
         val snapshot = firestore.collection("users").document(userId).get().await()
         return snapshot.toObject(User::class.java)
-    }
-
-    override fun setUserData(userId: String, userEmail: String, carCategory: Car?): User {
-        TODO("Not yet implemented")
     }
 
     override fun setCarData(
@@ -53,6 +58,6 @@ class FuelTrackerRepositoryImpl @Inject constructor(
     }
 
     override fun getCarId(carId: String): String {
-        TODO("Not yet implemented")
+        return getCarData(carId).carId!!
     }
 }

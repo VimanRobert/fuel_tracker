@@ -157,5 +157,4 @@ class LoginFragment : Fragment() {
         val signInIntent = userHelper.getGoogleSignInClient().signInIntent
         signInLauncher.launch(signInIntent)
     }
-
 }

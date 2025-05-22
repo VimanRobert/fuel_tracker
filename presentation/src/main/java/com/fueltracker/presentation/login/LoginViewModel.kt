@@ -5,9 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.fueltracker.domain.GetUserDataUseCase
 import com.fueltracker.domain.SetUserDataUseCase
 import com.fueltracker.domain.model.Car
-import com.fueltracker.domain.model.User
 import com.fueltracker.presentation.utils.UserHelper
-import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

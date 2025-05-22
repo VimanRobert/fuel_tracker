@@ -72,5 +72,4 @@ object NotificationsHelper {
         context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
             .edit().putBoolean(KEY_SHOW_CONNECT_PROMPT, false).apply()
     }
-
 }

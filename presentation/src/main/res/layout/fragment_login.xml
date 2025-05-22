@@ -56,7 +56,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="50dp"
         android:text="@string/button_register"
-        android:background="@color/red"
+        android:background="@color/orange"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

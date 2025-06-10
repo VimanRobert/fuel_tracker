@@ -38,6 +38,10 @@
     <!-- Car Info page -->
     <string name="text_application_scope">Application scope</string>
 
+    <!-- About App page -->
+    <string name="title_about_this_app">About this app</string>
+    <string name="text_app_info">This is FuelTracker, an android application that shows information about the users car and the fuel consumption for the last rides.\nThe application works on two sides:\n- The mobile app where the user creates a google account and will generate a pair code to connect to the car app. It will be visible in the User Info section.\n- The car app where the user connects via the pairing code from the mobile app. This process also takes place in the User Info section.\n\nOnce connected, the user will be able to see his account and car data on both platforms in the app.\nThe consumption data will be generated only 2 times a day, one at 10AM and at 18PM.\nThe consumption reports can be visible in the Daily Reports section, only if the user is connected on the both platforms.</string>
+
     <!-- Default text messages -->
     <string name="text_unknown">UNKNOWN</string>
     <string name="text_error_no_pairing_code_available">This code is not associated with an existing user. Register a new user in the mobile app first</string>

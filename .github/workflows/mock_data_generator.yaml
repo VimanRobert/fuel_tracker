@@ -1,31 +1,41 @@
-run-name: "generate-mock-data"
+run-name: "generate-fuel-mock-data"
 on:
-    push:           ## removing the branches tag from below will push the data to all branches
-      branches:
-        - main       ## mock data will be pushed directly on main branch
-        - develop    ## the branch from development mode
-      paths:  
-        - '/../..'     ## path to firebase database
-        - '!/../..'    ## path to excluded firebase database
-    schedule:
-      - cron: ''
-    workflow_call:
-      outputs:
-        automatic-trigger:
-          description: "the workflow is triggered automatically"
-          value: "value"
-        manual-trigger:
-          description: "the workflow is triggered manually"
-          value: "value"
+  workflow_dispatch:  # Manual trigger
+  schedule:
+    - cron: '0 10 * * *'  # 10:00 AM
+    - cron: '0 18 * * *'  # 6:00 PM
+    #   paths:  
+    #     - '/../..'     ## path to firebase database
+    #     - '!/../..'    ## path to excluded firebase database
+    # schedule:
+    #   - cron: ''
+    # workflow_call:
+    #   outputs:
+    #     automatic-trigger:
+    #       description: "the workflow is triggered automatically"
+    #       value: "value"
+    #     manual-trigger:
+    #       description: "the workflow is triggered manually"
+    #       value: "value"
+
+env:
+            FIREBASE_PROJECT_ID: ${{ secrets.PROJECT_ID }}
+            FIREBASE_SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
 
 jobs:
     run-workflow:
       runs-on: ubuntu-latest
       steps:
-      - name: "connect-to-firebase"  
-        uses: " " ## add firebase credentials (github secrets)
-        with:
-          token: "" ## github secrets value
+        - name: "checkout-to-repo"
+          uses: actions/checkout@v3
 
-      - name: generate-mock-data ## push-data-to-firebase
-        run: generate-mock-data/dist/index.js ## github action that generate the mock data
+        - name: "generate-data"
+          env:
+            FIREBASE_PROJECT_ID: ${{ secrets.PROJECT_ID }}
+            FIREBASE_SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
+          run: actions/generate-mock-data
+      #   with:
+      #     token: "" ## github secrets value
+
+      # - name: generate-mock-data ## push-data-to-firebase
+      #   run: generate-mock-data/dist/index.js ## github action that generate the mock data

@@ -5,5 +5,4 @@ export interface Car {
     fuelType: String;
     engine: Number;
     horsePower: Number;
-    energy: Number;
 }

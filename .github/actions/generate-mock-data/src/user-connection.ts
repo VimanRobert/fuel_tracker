@@ -11,7 +11,7 @@ export const getAllUsers = async (): Promise<User[]> => {
       return {
         userId: doc.id as string,
         userEmail: userData.email as string,
-        data: userData.data || {},
+        userCar: userData.car || {},
       };
     });
 

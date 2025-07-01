@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "esbuild src/index.ts --bundle --platform=node --target=node18 --outfile=dist/index.js --inject:dist/env-shim.js"
   },
   "keywords": [],
   "author": "",
@@ -15,11 +15,13 @@
     "@firebase/app": "^0.11.3",
     "@firebase/firestore": "^4.7.10",
     "dotenv": "^16.4.7",
-    "firebase-admin": "^13.1.0"
+    "firebase": "^11.10.0",
+    "firebase-admin": "^13.4.0"
   },
   "devDependencies": {
     "@types/node": "^22.13.1",
     "@vercel/ncc": "^0.38.3",
+    "esbuild": "^0.25.5",
     "typescript": "^5.7.3"
   }
 }

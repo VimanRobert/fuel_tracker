@@ -1,0 +1,10 @@
+name: "Generate Mock Data Action"
+description: "GitHub Action to run the Fuel Tracker logic written in TypeScript"
+inputs:
+  env:
+    description: "main_env"
+    required: true
+    default: "main_env"
+runs:
+  using: "node16"
+  main: "dist/index.js"

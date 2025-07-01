@@ -18,22 +18,31 @@ on:
     #       description: "the workflow is triggered manually"
     #       value: "value"
 
-env:
-            FIREBASE_PROJECT_ID: ${{ secrets.PROJECT_ID }}
-            FIREBASE_SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
-
 jobs:
     run-workflow:
       runs-on: ubuntu-latest
+      environment: main_env
+      env:
+        API_KEY: ${{ vars.API_KEY }}
+        PROJECT_ID: ${{ vars.PROJECT_ID }}
+        SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
+
       steps:
         - name: "checkout-to-repo"
           uses: actions/checkout@v3
 
         - name: "generate-data"
-          env:
-            FIREBASE_PROJECT_ID: ${{ secrets.PROJECT_ID }}
-            FIREBASE_SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
-          run: actions/generate-mock-data
+          run: |
+            echo "API_KEY: ${{ vars.API_KEY }}"
+            echo "PROJECT_ID: ${{ env.PROJECT_ID }}"
+            echo "SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}"
+            cd .github/actions/generate-mock-data
+            npm install
+            npx ts-node src/index.ts
+        
+          # with:
+            # env: main_env
+          
       #   with:
       #     token: "" ## github secrets value
 

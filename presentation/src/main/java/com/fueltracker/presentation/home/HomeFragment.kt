@@ -39,7 +39,7 @@ class HomeFragment : Fragment() {
                 HomeDestination.GENERAL_REPORTS -> findNavController().navigate(R.id.action_homeFragment_to_generalReportsFragment)
                 HomeDestination.USER_STATUS -> findNavController().navigate(R.id.action_homeFragment_to_userStatusFragment)
                 HomeDestination.FUEL_INFO -> TODO()
-                HomeDestination.DAILY_REPORTS -> TODO()
+                HomeDestination.DAILY_REPORTS -> findNavController().navigate(R.id.action_homeFragment_to_dailyReportsFragment)
             }
         }
 

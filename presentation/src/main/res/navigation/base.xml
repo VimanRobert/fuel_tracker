@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_homeFragment_to_userStatusFragment"
             app:destination="@id/userStatusFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_dailyReportsFragment"
+            app:destination="@id/dailyReportsFragment" />
     </fragment>
     <fragment
         android:id="@+id/infoFragment"
@@ -60,6 +63,15 @@
         tools:layout="@layout/fragment_user_status" >
         <action
             android:id="@+id/action_userStatusFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dailyReportsFragment"
+        android:name="com.fueltracker.presentation.dailyreports.DailyReportsFragment"
+        android:label="fragment_daily_reports"
+        tools:layout="@layout/fragment_daily_reports" >
+        <action
+            android:id="@+id/action_dailyReportsFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
 </navigation>

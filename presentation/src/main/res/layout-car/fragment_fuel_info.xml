@@ -1,0 +1,39 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+    <TextView
+        android:id="@+id/text_fuel_used"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:text="Fuel consumed over time:"
+        android:textSize="40sp"
+        android:textColor="@color/black" />
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/chart_fuel_used_report"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_margin="16dp"
+        android:layout_marginTop="100dp" />
+
+    <TextView
+        android:id="@+id/text_fuel_used_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:text="This chart shows the amount of fuel used in each report over time."
+        android:textSize="40sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="30dp" />
+
+    </LinearLayout>
+</ScrollView>

@@ -1,26 +1,16 @@
 package com.fueltracker.presentation.utils
 
 import android.content.Context
-import android.content.SharedPreferences
 import android.util.Log
-import com.fueltracker.domain.GetCarDataUseCase
+
 import com.fueltracker.domain.model.Car
-import com.fueltracker.presentation.utils.ChartsHandler.createLinearChart
-import com.fueltracker.presentation.utils.ChartsHandler.setupChart
-import com.github.mikephil.charting.charts.LineChart
-import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.data.Entry
-import com.github.mikephil.charting.data.LineDataSet
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
-import java.security.KeyStore
 import java.time.Duration
 import java.time.Instant
-import java.time.LocalDate
 import java.time.ZoneId
-import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 
 object ConnectionHandler {
@@ -120,7 +110,7 @@ object ConnectionHandler {
         val now = Instant.now()
         val cutoff = now.minus(Duration.ofHours(24))
 
-        val rawList = mutableListOf<Triple<Instant, Float, String>>() // time, avg, formatted time string
+        val rawList = mutableListOf<Triple<Instant, Float, String>>()
 
         db.collection("users")
             .document(userId)
@@ -150,6 +140,95 @@ object ConnectionHandler {
 
                 val entries = sorted.mapIndexed { index, triple ->
                     Entry(index.toFloat(), triple.second)
+                }
+
+                val labels = sorted.map { it.third }
+
+                onResult(entries, labels)
+            }
+            .addOnFailureListener { onError(it) }
+    }
+
+    fun fetchAllUserReports(
+        userId: String,
+        onResult: (entries: List<Entry>, timeLabels: List<String>) -> Unit,
+        onError: (Exception) -> Unit
+    ) {
+        val db = FirebaseFirestore.getInstance()
+        val reportData = mutableListOf<Triple<Instant, Float, String>>()
+
+        db.collection("users")
+            .document(userId)
+            .collection("reports")
+            .get()
+            .addOnSuccessListener { documents ->
+                for (doc in documents) {
+                    val isoDate = doc.getString("date") ?: continue
+                    val avgStr = doc.getString("mediumConsumptionLevel") ?: continue
+                    val avg = avgStr.toFloatOrNull() ?: continue
+
+                    val instant = try {
+                        Instant.parse(isoDate)
+                    } catch (e: Exception) {
+                        continue
+                    }
+
+                    val label = instant.atZone(ZoneId.systemDefault())
+                        .format(DateTimeFormatter.ofPattern("MM-dd HH:mm"))
+
+                    reportData.add(Triple(instant, avg, label))
+                }
+
+                val sorted = reportData.sortedBy { it.first }
+
+                val entries = sorted.mapIndexed { index, triple ->
+                    Entry(index.toFloat(), triple.second)
+                }
+
+                val labels = sorted.map { it.third }
+
+                onResult(entries, labels)
+            }
+            .addOnFailureListener { onError(it) }
+    }
+
+    fun fetchFuelUsageReports(
+        userId: String,
+        onResult: (entries: List<Entry>, labels: List<String>) -> Unit,
+        onError: (Exception) -> Unit
+    ) {
+        val db = FirebaseFirestore.getInstance()
+        val usageList = mutableListOf<Triple<Instant, Float, String>>()
+
+        db.collection("users")
+            .document(userId)
+            .collection("reports")
+            .get()
+            .addOnSuccessListener { documents ->
+                for (doc in documents) {
+                    val isoDate = doc.getString("date") ?: continue
+                    val fuelStr = doc.getString("fuelUsed") ?: continue
+
+                    val fuelValue = fuelStr.replace("L", "", ignoreCase = true)
+                        .trim()
+                        .toFloatOrNull() ?: continue
+
+                    val time = try {
+                        Instant.parse(isoDate)
+                    } catch (e: Exception) {
+                        continue
+                    }
+
+                    val label = time.atZone(ZoneId.systemDefault())
+                        .format(DateTimeFormatter.ofPattern("MM-dd HH:mm"))
+
+                    usageList.add(Triple(time, fuelValue, label))
+                }
+
+                val sorted = usageList.sortedBy { it.first }
+
+                val entries = sorted.mapIndexed { index, item ->
+                    Entry(index.toFloat(), item.second)
                 }
 
                 val labels = sorted.map { it.third }

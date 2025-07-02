@@ -45,4 +45,6 @@
     <!-- Default text messages -->
     <string name="text_unknown">UNKNOWN</string>
     <string name="text_error_no_pairing_code_available">This code is not associated with an existing user. Register a new user in the mobile app first</string>
+    <string name="text_general_consumption_reports">General consumption reports:</string>
+    <string name="text_general_reports_info">All reports medium consumption score are present int the above chart for each drive report. With this you can see the fuel consumption score over time.</string>
 </resources>

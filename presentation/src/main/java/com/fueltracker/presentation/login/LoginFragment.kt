@@ -47,51 +47,52 @@ class LoginFragment : Fragment() {
         with(binding) {
             if (!loginViewModel.isUserConnected(requireContext(), userHelper)) {
                 Log.e("TAG", "No user connected")
-                login.setOnClickListener {
-                    userHelper.login(
-                        binding.userEmail.text.toString(),
-                        binding.userPassword.text.toString()
-                    ) { isSuccessful ->
-                        if (isSuccessful) {
-                            userHelper.showUsernameDialog(requireContext()) { username ->
-                                val user = FirebaseAuth.getInstance().currentUser
-                                if (user != null) {
-                                    userHelper.createOrUpdateUserInFirestore(
-                                        user,
-                                        username,
-                                        onSuccess = {
-                                            startActivity(
-                                                Intent(
-                                                    requireContext(),
-                                                    MainActivity::class.java
-                                                )
-                                            )
-                                            requireActivity().finish()
-                                        },
-                                        onFailure = { error ->
-                                            Toast.makeText(
-                                                requireContext(),
-                                                error,
-                                                Toast.LENGTH_LONG
-                                            ).show()
-                                        }
-                                    )
-                                }
-                            }
-
-                            userHelper.generateSessionToken()
-                            startActivity(Intent(context, MainActivity::class.java))
-                        } else {
-                            Log.e("TAG", "credentials don't match")
-                        }
-                    }
-                }
+//                login.isEnabled
+//                login.setOnClickListener {
+//                    userHelper.login(
+//                        binding.userEmail.text.toString(),
+//                        binding.userPassword.text.toString()
+//                    ) { isSuccessful ->
+//                        if (isSuccessful) {
+//                            userHelper.showUsernameDialog(requireContext()) { username ->
+//                                val user = FirebaseAuth.getInstance().currentUser
+//                                if (user != null) {
+//                                    userHelper.createOrUpdateUserInFirestore(
+//                                        user,
+//                                        username,
+//                                        onSuccess = {
+//                                            startActivity(
+//                                                Intent(
+//                                                    requireContext(),
+//                                                    MainActivity::class.java
+//                                                )
+//                                            )
+//                                            requireActivity().finish()
+//                                        },
+//                                        onFailure = { error ->
+//                                            Toast.makeText(
+//                                                requireContext(),
+//                                                error,
+//                                                Toast.LENGTH_LONG
+//                                            ).show()
+//                                        }
+//                                    )
+//                                }
+//                            }
+//
+//                            userHelper.generateSessionToken()
+//                            startActivity(Intent(context, MainActivity::class.java))
+//                        } else {
+//                            Log.e("TAG", "credentials don't match")
+//                        }
+//                    }
+//                }
                 loginGoogle.setOnClickListener {
                     startSignIn()
                 }
-                register.setOnClickListener {
-                    findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
-                }
+//                register.setOnClickListener {
+//                    findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+//                }
             } else {
                 Log.e("TAG", "User connected: ${userHelper.getCurrentUser()?.email.toString()}")
                 startActivity(Intent(context, MainActivity::class.java))
